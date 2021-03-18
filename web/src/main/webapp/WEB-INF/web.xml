@@ -6,10 +6,26 @@
         <servlet-name>Main</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.mainServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AuthorServlet</servlet-name>
+        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.AuthorServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReferenceServlet</servlet-name>
+        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>Main</servlet-name>
         <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthorServlet</servlet-name>
+        <url-pattern>/author</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReferenceServlet</servlet-name>
+        <url-pattern>/reference</url-pattern>
     </servlet-mapping>
 
 

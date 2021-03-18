@@ -12,16 +12,19 @@ public class DbConnection {
 
     private static Connection connection = null;
 
-    static {
-        try{
-           connection = DriverManager.getConnection(URL,USER,PASSWORD) ;
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
+  /*  static {
 
+    }
+*/
     public static Connection getConnection(){
-        return connection;
+        try{
+            if(connection==null){
+                Class.forName ("oracle.jdbc.driver.OracleDriver");
+                connection = DriverManager.getConnection(URL,USER,PASSWORD) ;
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }return connection;
     }
 
     public static void closeConnection() throws SQLException {

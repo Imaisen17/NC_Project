@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface ReferenceDAO {
     List<Reference> getAll();
+    List<Reference> getAllById(int id);
+
 
     Reference getByShortAddress(String short_address);
 

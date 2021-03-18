@@ -1,5 +1,6 @@
 package com.ivan.nc.shortenedlinksservice.dao;
 
+import com.ivan.nc.shortenedlinksservice.DTO.AuthorDTO;
 import com.ivan.nc.shortenedlinksservice.model.Author;
 import com.ivan.nc.shortenedlinksservice.util.DbConnection;
 
@@ -24,6 +25,27 @@ public class AuthorDAOImpl extends DbConnection implements AuthorDAO {
                 Author author = new Author();
                 author.setId(resultSet.getInt("id"));
                 author.setName(resultSet.getString("name"));
+                list.add(author);
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public List<AuthorDTO> getAllWithRef() throws SQLException {
+        List<AuthorDTO> list = new ArrayList<>();
+        String SQL = "select author.id, author.name, " +
+                "count(reference.author_id) countReferences from author left join reference " +
+                "on author.id=reference.author_id " +
+                "group by author.id, author.name " +
+                "order by author.id";
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(SQL)) {
+            while (resultSet.next()) {
+                AuthorDTO author = new AuthorDTO();
+                author.setId(resultSet.getInt("id"));
+                author.setName(resultSet.getString("name"));
+                author.setRefCount(resultSet.getInt("countReferences"));
                 list.add(author);
             }
         }

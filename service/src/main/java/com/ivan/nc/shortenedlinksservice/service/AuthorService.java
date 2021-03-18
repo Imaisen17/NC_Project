@@ -1,5 +1,6 @@
 package com.ivan.nc.shortenedlinksservice.service;
 
+import com.ivan.nc.shortenedlinksservice.DTO.AuthorDTO;
 import com.ivan.nc.shortenedlinksservice.dao.AuthorDAO;
 import com.ivan.nc.shortenedlinksservice.dao.AuthorDAOImpl;
 import com.ivan.nc.shortenedlinksservice.model.Author;
@@ -15,12 +16,9 @@ public class AuthorService {
         this.authorDAO = new AuthorDAOImpl();
     }
 
-    public void show() throws SQLException {
-        List<Author> list = authorDAO.getAll();
-        for (Author author :
-                list) {
-            System.out.println(author.getId() + " " + author.getName());
-        }
+    public List<AuthorDTO> show() throws SQLException {
+        List<AuthorDTO> list = authorDAO.getAllWithRef();
+        return list;
     }
 
     public void showById(int id) throws SQLException {

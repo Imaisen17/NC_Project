@@ -14,13 +14,13 @@ public class ReferenceService {
         this.referenceDAO = new ReferenceDAOImpl();
     }
 
-    public void show() {
+    public List<Reference> show() {
         List<Reference> list = referenceDAO.getAll();
-        System.out.println("List of References:");
-        for (Reference reference :
-                list) {
-            System.out.println(reference.getAuthorId() + " " + reference.getShortAddress() + " " + reference.getFullAddress() + " " + reference.getDateCreate());
-        }
+        return list;
+    }
+    public List<Reference> showById(int id) {
+        List<Reference> list = referenceDAO.getAllById(id);
+        return list;
     }
 
     public void showByShort_address(String short_address) {

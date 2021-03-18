@@ -40,6 +40,28 @@ public class ReferenceDAOImpl extends DbConnection implements ReferenceDAO {
     }
 
     @Override
+    public List<Reference> getAllById(int id) {
+        List<Reference> list = new ArrayList<Reference>();
+        String SQL = "SELECT * FROM REFERENCE where author_id =?";
+        try (PreparedStatement statement = connection.prepareStatement(SQL))
+             {
+                 statement.setInt(1, id);
+                 ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Reference reference = new Reference();
+                reference.setFullAddress(resultSet.getString("full_address"));
+                reference.setShortAddress(resultSet.getString("short_address"));
+                reference.setDateCreate(resultSet.getDate("date_create"));
+                reference.setAuthorId(resultSet.getInt("author_id"));
+                list.add(reference);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return list;
+    }
+
+    @Override
     public Reference getByShortAddress(String short_address) {
         Reference reference = null;
         String SQL = "SELECT short_address, full_address, date_create, author_id FROM REFERENCE where short_address =?" ;
