@@ -1,7 +1,0 @@
-com\ivan\nc\shortenedlinksservice\dao\AuthorDAO.class
-com\ivan\nc\shortenedlinksservice\model\Reference.class
-com\ivan\nc\shortenedlinksservice\model\Author.class
-com\ivan\nc\shortenedlinksservice\dao\ReferenceDAO.class
-com\ivan\nc\shortenedlinksservice\util\DbConnection.class
-com\ivan\nc\shortenedlinksservice\dao\ReferenceDAOImpl.class
-com\ivan\nc\shortenedlinksservice\dao\AuthorDAOImpl.class
