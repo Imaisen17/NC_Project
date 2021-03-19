@@ -11,12 +11,20 @@
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.AuthorServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>AuthorAdd</servlet-name>
+        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.AuthorAdd</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ReferenceServlet</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>StatisticsServlet</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.StatisticsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReferenceAdd</servlet-name>
+        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceAdd</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -34,6 +42,14 @@
     <servlet-mapping>
         <servlet-name>StatisticsServlet</servlet-name>
         <url-pattern>/statistics</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthorAdd</servlet-name>
+        <url-pattern>/authorAdd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReferenceAdd</servlet-name>
+        <url-pattern>/referenceAdd</url-pattern>
     </servlet-mapping>
 
 

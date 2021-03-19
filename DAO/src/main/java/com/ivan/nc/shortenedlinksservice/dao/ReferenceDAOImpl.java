@@ -117,10 +117,15 @@ public class ReferenceDAOImpl extends DbConnection implements ReferenceDAO {
 
     @Override
     public void delete(String shortAddress) throws SQLException {
-        String SQL = "DELETE FROM Reference where short_address =?";
+        String SQL = "DELETE FROM Statistics where ref_short_adr=?";
         try(PreparedStatement statement = connection.prepareStatement(SQL)) {
             statement.setString(1, shortAddress);
             statement.executeUpdate();
+            SQL = "DELETE FROM Reference where short_address =?";
+            PreparedStatement preparedStatement1 = connection.prepareStatement(SQL);
+            preparedStatement1.setString(1, shortAddress);
+            preparedStatement1.executeUpdate();
+            preparedStatement1.close();
         }
     }
 }

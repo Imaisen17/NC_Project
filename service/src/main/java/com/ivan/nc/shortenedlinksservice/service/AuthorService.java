@@ -21,9 +21,10 @@ public class AuthorService {
         return list;
     }
 
-    public void showById(int id) throws SQLException {
+    public Author showById(int id) throws SQLException {
         Author author = authorDAO.getById(id);
         System.out.println(author.getId() + author.getName());
+        return author;
     }
 
     public void create(String name) throws SQLException {

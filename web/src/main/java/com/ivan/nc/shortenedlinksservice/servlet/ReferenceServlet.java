@@ -1,6 +1,11 @@
 package com.ivan.nc.shortenedlinksservice.servlet;
 
 import com.ivan.nc.shortenedlinksservice.DTO.AuthorDTO;
+import com.ivan.nc.shortenedlinksservice.dao.AuthorDAO;
+import com.ivan.nc.shortenedlinksservice.dao.AuthorDAOImpl;
+import com.ivan.nc.shortenedlinksservice.dao.ReferenceDAO;
+import com.ivan.nc.shortenedlinksservice.dao.ReferenceDAOImpl;
+import com.ivan.nc.shortenedlinksservice.model.Author;
 import com.ivan.nc.shortenedlinksservice.model.Reference;
 import com.ivan.nc.shortenedlinksservice.model.Statistics;
 import com.ivan.nc.shortenedlinksservice.service.AuthorService;
@@ -16,9 +21,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ReferenceServlet extends HttpServlet {
-
+private int id;
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.valueOf(req.getParameter("id"));
+        System.out.println(req.getParameter("id"));
+        id = Integer.valueOf(req.getParameter("id"));
+        System.out.println(id);
         ReferenceService referenceService = new ReferenceService();
         List<Reference> referenceList;
             referenceList = referenceService.showById(id);
@@ -29,6 +36,18 @@ public class ReferenceServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+        String shortAddress = req.getParameter("delete");
+        try {
+            System.out.println("Tryyy");
+            ReferenceService referenceService = new ReferenceService();
+            //Reference reference = referenceService.showByShort_address(shortAddress);
+            System.out.println(shortAddress);
+            referenceService.delete(shortAddress);
+            resp.sendRedirect("/reference?id="+id);
+            System.out.println(id+"");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
     }
 }

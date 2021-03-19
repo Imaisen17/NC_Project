@@ -108,6 +108,7 @@ public class Console {
                     reload = false;
                 }break;
                 case 12:{
+                    System.out.println("Show statistics by Author id");
                     statisticsService.showByAuthorId(scanner.nextInt());
                 }break;
                 default: {

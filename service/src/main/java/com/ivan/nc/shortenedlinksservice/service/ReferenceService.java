@@ -23,9 +23,10 @@ public class ReferenceService {
         return list;
     }
 
-    public void showByShort_address(String short_address) {
+    public Reference showByShort_address(String short_address) {
         Reference reference = referenceDAO.getByShortAddress(short_address);
         System.out.println(reference.getAuthorId() + " " + reference.getShortAddress() + " " + reference.getFullAddress() + " " + reference.getDateCreate());
+        return reference;
     }
 
     public void create(String fullAddress, int authorId) throws SQLException {
