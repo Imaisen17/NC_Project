@@ -1,24 +1,27 @@
 package com.ivan.nc.shortenedlinksservice.dao;
 
-import com.ivan.nc.shortenedlinksservice.model.Author;
-import com.ivan.nc.shortenedlinksservice.model.Reference;
 import com.ivan.nc.shortenedlinksservice.model.Statistics;
+import com.ivan.nc.shortenedlinksservice.util.DbConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StatisticsDAOImpl implements StatisticsDAO {
+public class StatisticsDAOImpl extends DbConnection implements StatisticsDAO {
     private Connection connection;
+
+    public StatisticsDAOImpl() {
+        this.connection = getConnection();;
+    }
 
     @Override
     public List<Statistics> getAllStatByAuthorId(int authorId) throws SQLException {
         List<Statistics> list = new ArrayList<>();
         String SQL = "SELECT * FROM Statistics where id_author = ?";
         Date date = new Date(System.currentTimeMillis());
-        try (PreparedStatement statement = connection.prepareStatement(SQL);
-             ResultSet resultSet = statement.executeQuery()) {
+        try (PreparedStatement statement = connection.prepareStatement(SQL)) {
             statement.setInt(1, authorId);
+            ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Statistics statistics = new Statistics();
                 statistics.setIdAuthor(resultSet.getInt("id_author"));

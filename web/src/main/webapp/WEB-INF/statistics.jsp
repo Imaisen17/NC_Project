@@ -17,21 +17,10 @@
 <%@ include file="../header.jsp"%>
 
 <ul>
-    <c:forEach var="author" items="${authorList}">
-        <li>Author <a href="reference?id=${author.id}">${author.name} </a> , id: ${author.id}, reference count: ${author.refCount}</li>
-        <li> <a href="statistics?id=${author.id}">Stat</a></li>
+    <c:forEach var="statistic" items="${statisticsList}">
+        <li>Statistic ${statistic.idAuthor}, shortRef: ${statistic.refShortAdr}, number of trans: ${statistic.numbOfTrans}, last: ${statistic.lastTrans}</li>
     </c:forEach>
 </ul>
-<br>
-
-<form action="/author" method="post">
-    <label>Author name:</label>
-    <input name="authorName" type="text"/>
-    <br>
-    <input type="submit" name="Send"/>
-</form>
-
-
 
 </body>
 </html>

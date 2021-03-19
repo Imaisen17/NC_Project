@@ -13,6 +13,7 @@ public class StatisticsService {
     public StatisticsService() {
         this.statisticsDAO = new StatisticsDAOImpl();
     }
+
     public List<Statistics> showByAuthorId(int id) throws SQLException {
         List<Statistics> statisticsList = statisticsDAO.getAllStatByAuthorId(id);
         return statisticsList;

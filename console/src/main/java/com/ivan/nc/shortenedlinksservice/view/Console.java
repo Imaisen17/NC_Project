@@ -1,7 +1,9 @@
 package com.ivan.nc.shortenedlinksservice.view;
 
+import com.ivan.nc.shortenedlinksservice.model.Statistics;
 import com.ivan.nc.shortenedlinksservice.service.AuthorService;
 import com.ivan.nc.shortenedlinksservice.service.ReferenceService;
+import com.ivan.nc.shortenedlinksservice.service.StatisticsService;
 import com.ivan.nc.shortenedlinksservice.util.DbConnection;
 
 import java.sql.SQLException;
@@ -11,10 +13,12 @@ import java.util.Scanner;
 public class Console {
     private AuthorService authorService;
     private ReferenceService referenceService;
+    private StatisticsService statisticsService;
 
-    public Console(AuthorService authorService, ReferenceService referenceService) {
+    public Console(AuthorService authorService, ReferenceService referenceService, StatisticsService statisticsService) {
         this.authorService = authorService;
         this.referenceService = referenceService;
+        this.statisticsService = statisticsService;
     }
 
     public Console(ReferenceService referenceService) {
@@ -23,6 +27,10 @@ public class Console {
 
     public Console(AuthorService authorService) {
         this.authorService = authorService;
+    }
+
+    public Console(StatisticsService statisticsService) {
+        this.statisticsService = statisticsService;
     }
 
     public void start() throws SQLException {
@@ -98,6 +106,9 @@ public class Console {
                     System.out.println("Exiting\n");
                     DbConnection.closeConnection();
                     reload = false;
+                }break;
+                case 12:{
+                    statisticsService.showByAuthorId(scanner.nextInt());
                 }break;
                 default: {
                     System.out.println("Incorrect choice! Try again!");

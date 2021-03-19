@@ -14,6 +14,10 @@
         <servlet-name>ReferenceServlet</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StatisticsServlet</servlet-name>
+        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.StatisticsServlet</servlet-class>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>Main</servlet-name>
@@ -26,6 +30,10 @@
     <servlet-mapping>
         <servlet-name>ReferenceServlet</servlet-name>
         <url-pattern>/reference</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StatisticsServlet</servlet-name>
+        <url-pattern>/statistics</url-pattern>
     </servlet-mapping>
 
 
