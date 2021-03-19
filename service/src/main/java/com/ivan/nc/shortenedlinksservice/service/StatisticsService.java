@@ -10,7 +10,7 @@ import java.util.List;
 public class StatisticsService {
     private StatisticsDAO statisticsDAO;
 
-    public StatisticsService(StatisticsDAO statisticsDAO) {
+    public StatisticsService() {
         this.statisticsDAO = new StatisticsDAOImpl();
     }
     public List<Statistics> showByAuthorId(int id) throws SQLException {

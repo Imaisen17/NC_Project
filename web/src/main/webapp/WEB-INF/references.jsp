@@ -21,6 +21,11 @@
         <li>Reference ${reference.fullAddress}, short address: ${reference.shortAddress}, date create: ${reference.dateCreate}</li>
     </c:forEach>
 </ul>
+<ul>
+    <c:forEach var="statistic" items="${statisticsList}">
+        <li>Statistic ${statistic.idAuthor}, shortRef: ${statistic.refShortAdr}, number of trans: ${statistic.numbOfTrans}, last: ${statistic.lastTrans}</li>
+    </c:forEach>
+</ul>
 
 </body>
 </html>
