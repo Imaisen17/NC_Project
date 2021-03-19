@@ -1,6 +1,8 @@
 package com.ivan.nc.shortenedlinksservice.servlet;
 
 import com.ivan.nc.shortenedlinksservice.DTO.AuthorDTO;
+import com.ivan.nc.shortenedlinksservice.dao.AuthorDAO;
+import com.ivan.nc.shortenedlinksservice.dao.AuthorDAOImpl;
 import com.ivan.nc.shortenedlinksservice.model.Author;
 import com.ivan.nc.shortenedlinksservice.service.AuthorService;
 
@@ -31,8 +33,16 @@ public class AuthorServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPost(req, resp);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
+        String authorName = req.getParameter("name");
+        AuthorDAO authorDAO = new AuthorDAOImpl();
+        try {
+            authorDAO.create(authorName);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        resp.sendRedirect("WEB-INF/author.jsp");
+
     }
 
 

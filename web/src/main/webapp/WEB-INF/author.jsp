@@ -21,6 +21,16 @@
         <li>Author <a href="reference?id=${author.id}">${author.name} </a> , id: ${author.id}, reference count: ${author.refCount}</li>
     </c:forEach>
 </ul>
+<br>
+
+<form action="/author" method="post">
+    <label>Author name:</label>
+    <input name="authorName" type="text"/>
+    <br>
+    <input type="submit" name="Send"/>
+</form>
+
+
 
 </body>
 </html>
