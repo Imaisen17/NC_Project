@@ -4,5 +4,6 @@
         <a class="p-2 text-dark" href="/authorAdd">Add new Author</a>
         <a class="p-2 text-dark" href="/referenceAdd">Add new Reference</a>
         <a class="p-2 text-dark" href="/author">Home</a>
+        <a class="p-2 text-dark" href="/allStat">All Statistics</a>
     </nav>
 </header>

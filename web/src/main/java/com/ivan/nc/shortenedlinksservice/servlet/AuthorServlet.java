@@ -34,16 +34,28 @@ public class AuthorServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-    int authorId = Integer.valueOf(req.getParameter("delete"));
-        try {
-            AuthorService authorService = new AuthorService();
-            Author author = authorService.showById(authorId);
-            authorService.delete(authorId);
-            resp.sendRedirect("/author");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
+       // if (req.getParameter("delete")){
+            int authorId = Integer.valueOf(req.getParameter("delete"));
+            try {
+                AuthorService authorService = new AuthorService();
+                Author author = authorService.showById(authorId);
+                authorService.delete(authorId);
 
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        /*else {
+            int authorId = Integer.valueOf(req.getParameter("update"));
+            String authorName = req.getParameter("authorName");
+            AuthorService authorService = new AuthorService();
+            try {
+                authorService.update(authorId, authorName);
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }*/
+
+        resp.sendRedirect("/author");
     }
 
 

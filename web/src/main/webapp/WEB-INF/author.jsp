@@ -20,7 +20,7 @@
 <ul>
     <c:forEach var="author" items="${authorList}">
         <li>Author <a href="reference?id=${author.id}">${author.name} </a> , id: ${author.id}, reference count: ${author.refCount}
-        <li> <a href="statistics?id=${author.id}">Stat</a></li>
+        <li> <a href="statistics?id=${author.id}">Statistics</a></li>
         <form action="/author" method="post">
             <button type="submit" name="delete" value="${author.id}">Delete</button>
         </form>

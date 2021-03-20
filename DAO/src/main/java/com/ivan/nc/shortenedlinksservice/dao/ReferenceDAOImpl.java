@@ -85,6 +85,29 @@ public class ReferenceDAOImpl extends DbConnection implements ReferenceDAO {
     }
 
     @Override
+    public Reference getByFullAddress(String full_address) {
+        Reference reference = null;
+        String SQL = "SELECT short_address, full_address, date_create, author_id FROM REFERENCE where full_address =?" ;
+        try (PreparedStatement statement = connection.prepareStatement(SQL)
+        ) {
+            statement.setString(1, full_address);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                String short_address_link = resultSet.getString("short_address");
+                String full_addressTemp = resultSet.getString("full_address");
+                Date date_create = resultSet.getDate("date_create");
+                int author_id = resultSet.getInt("author_id");
+                reference = new Reference(short_address_link, full_address, date_create, author_id);
+                resultSet.close();
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return reference;
+    }
+
+    @Override
     public void create(String fullAddress, int authorId) throws SQLException {
         String SQL = "INSERT INTO Reference values(?,?,?,?)";
         Date date = new Date(System.currentTimeMillis());

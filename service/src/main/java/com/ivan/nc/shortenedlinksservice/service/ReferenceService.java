@@ -3,6 +3,7 @@ package com.ivan.nc.shortenedlinksservice.service;
 import com.ivan.nc.shortenedlinksservice.dao.ReferenceDAO;
 import com.ivan.nc.shortenedlinksservice.dao.ReferenceDAOImpl;
 import com.ivan.nc.shortenedlinksservice.model.Reference;
+import oracle.sql.REF;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -26,6 +27,10 @@ public class ReferenceService {
     public Reference showByShort_address(String short_address) {
         Reference reference = referenceDAO.getByShortAddress(short_address);
         System.out.println(reference.getAuthorId() + " " + reference.getShortAddress() + " " + reference.getFullAddress() + " " + reference.getDateCreate());
+        return reference;
+    }
+    public Reference showByFullAddress(String fullAddress){
+        Reference reference = referenceDAO.getByFullAddress(fullAddress);
         return reference;
     }
 

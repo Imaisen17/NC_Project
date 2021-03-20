@@ -8,6 +8,8 @@ public class Statistics {
     private int numbOfTrans;
     private Date lastTrans;
 
+    private int counter;
+
     public Statistics(int idAuthor, String refShortAdr, int numbOfTrans, Date lastTrans) {
         this.idAuthor = idAuthor;
         this.refShortAdr = refShortAdr;

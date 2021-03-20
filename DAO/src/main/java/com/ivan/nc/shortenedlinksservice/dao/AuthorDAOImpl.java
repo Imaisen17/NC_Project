@@ -96,11 +96,16 @@ public class AuthorDAOImpl extends DbConnection implements AuthorDAO {
         try(PreparedStatement statement = connection.prepareStatement(SQL)) {
             statement.setInt(1, id);
             statement.executeUpdate();
+            SQL = "DELETE FROM Statistics WHERE id_author = ?";
+            PreparedStatement preparedStatement1 = connection.prepareStatement(SQL);
+            statement.setInt(1,id);
+            statement.executeUpdate();
+            preparedStatement1.close();
             SQL = "DELETE FROM Author where id=?";
-            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
-            preparedStatement.setInt(1,id);
-            preparedStatement.executeUpdate();
-            preparedStatement.close();
+            PreparedStatement preparedStatement2 = connection.prepareStatement(SQL);
+            preparedStatement2.setInt(1,id);
+            preparedStatement2.executeUpdate();
+            preparedStatement2.close();
         }
     }
 }

@@ -20,17 +20,14 @@
 
 <ul>
     <c:forEach var="reference" items="${referenceList}">
-        <li>Reference ${reference.fullAddress}, short address: ${reference.shortAddress}, date create: ${reference.dateCreate}</li>
+        <li>Reference - Full address:  <a href="referenceUpdate?shortAddress=${reference.shortAddress}"> ${reference.fullAddress} </a> short address: ${reference.shortAddress}, date create: ${reference.dateCreate}</li>
+        <li> <a href="referenceStatistic?shortAddress=${reference.shortAddress}">Statistics</a></li>
+        <li> <a href="referenceRedirect?fullAddress=${reference.fullAddress}">Redirect</a></li>
         <form action="/reference" method="post">
             <button type="submit" name="delete" value="${reference.shortAddress}">Delete</button>
         </form>
     </c:forEach>
 </ul>
-<%--<ul>
-    <c:forEach var="statistic" items="${statisticsList}">
-        <li>Statistic ${statistic.idAuthor}, shortRef: ${statistic.refShortAdr}, number of trans: ${statistic.numbOfTrans}, last: ${statistic.lastTrans}</li>
-    </c:forEach>
-</ul>--%>
 
 </body>
 </html>

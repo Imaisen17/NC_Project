@@ -12,10 +12,10 @@
 
 <form action="/referenceAdd" method="post">
     <label>Full address:</label>
-    <input name="fullAddress" type="text"/>
+    <input name="fullAddress" type="text" minlength="1" maxlength="2048" required/>
     <br>
     <label>Author id:</label>
-    <input name="authorId" type="text"/>
+    <input name="authorId" type="text" required m />
     <br>
     <input type="submit" name="Send"/>
 </form>

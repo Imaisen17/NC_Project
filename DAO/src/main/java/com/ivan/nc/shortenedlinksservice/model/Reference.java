@@ -15,7 +15,11 @@ public class Reference {
         this.authorId = authorId;
     }
 
-
+    public Reference(String fullAddress, String shortAddress, int authorId) {
+        this.fullAddress = fullAddress;
+        this.shortAddress = shortAddress;
+        this.authorId = authorId;
+    }
 
     public Reference() {
     }

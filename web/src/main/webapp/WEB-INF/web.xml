@@ -26,6 +26,32 @@
         <servlet-name>ReferenceAdd</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceAdd</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReferenceUpdate</servlet-name>
+        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceUpdate</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReferenceStatistics</servlet-name>
+        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.StatisticsReference</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReferenceRedirect</servlet-name>
+        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceRedirect</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AllStatistics</servlet-name>
+        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.AllStatisticsServlet</servlet-class>
+    </servlet>
+    <filter>
+        <filter-name>Filter</filter-name>
+        <filter-class>com.ivan.nc.shortenedlinksservice.servlet.Filter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>Filter</filter-name>
+        <url-pattern>/</url-pattern>
+    </filter-mapping>
+
 
     <servlet-mapping>
         <servlet-name>Main</servlet-name>
@@ -50,6 +76,22 @@
     <servlet-mapping>
         <servlet-name>ReferenceAdd</servlet-name>
         <url-pattern>/referenceAdd</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReferenceUpdate</servlet-name>
+        <url-pattern>/referenceUpdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReferenceStatistics</servlet-name>
+        <url-pattern>/referenceStatistic</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReferenceRedirect</servlet-name>
+        <url-pattern>/referenceRedirect</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllStatistics</servlet-name>
+        <url-pattern>/allStat</url-pattern>
     </servlet-mapping>
 
 

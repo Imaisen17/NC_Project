@@ -19,8 +19,13 @@ public class StatisticsService {
         return statisticsList;
     }
 
-    public Statistics showByRef(String ref) throws SQLException {
-        Statistics statistics = statisticsDAO.getAllStatByRef(ref);
-        return statistics;
+    public List<Statistics> showByRef(String ref) throws SQLException {
+        List<Statistics> statisticsList= statisticsDAO.getAllStatByRef(ref);
+        return statisticsList;
+    }
+
+    public List<Statistics> showAllStat() throws SQLException{
+        List<Statistics> statisticsList = statisticsDAO.getAll();
+        return statisticsList;
     }
 }
