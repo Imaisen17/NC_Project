@@ -27,6 +27,8 @@ public class ReferenceUpdate extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         //shortAddress = req.getParameter("shortAddress");
         String fullAddress = req.getParameter("fullAddress");
         int authorId = Integer.valueOf(req.getParameter("authorId"));
