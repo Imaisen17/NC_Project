@@ -1,0 +1,31 @@
+<application xmlns="http://java.sun.com/xml/ns/javaee" version="5">
+    <module>
+        <web>
+            <web-uri>web.war</web-uri>
+            <context-root>/ear</context-root>
+        </web>
+    </module>
+
+    <module>
+        <ejb>ejb.jar</ejb>
+    </module>
+</application>
+<!--
+<application>
+    <display-name>My Application</display-name>
+
+    <module>
+        <web>
+            <web-uri>web.war</web-uri>
+            <context-root>/ear</context-root>
+        </web>
+    </module>
+
+    <module>
+        <ejb>ejb.jar</ejb>
+    </module>
+
+    <library-directory>lib</library-directory>
+
+</application>
+-->
