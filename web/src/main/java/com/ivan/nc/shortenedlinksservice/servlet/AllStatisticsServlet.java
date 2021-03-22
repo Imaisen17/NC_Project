@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,12 +18,15 @@ public class AllStatisticsServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println(InetAddress.getLocalHost());
+        String address = req.getParameter(String.valueOf(InetAddress.getLocalHost()));
         StatisticsService statisticsService = new StatisticsService();
         List<Statistics> statisticsList;
         {
             try {
                 statisticsList = statisticsService.showAllStat();
                 req.setAttribute("statisticsList", statisticsList);
+                req.setAttribute("address", address);
                 req.getRequestDispatcher("WEB-INF/allStat.jsp").forward(req,resp);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

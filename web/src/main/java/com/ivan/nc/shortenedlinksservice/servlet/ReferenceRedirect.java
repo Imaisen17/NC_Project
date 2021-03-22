@@ -22,7 +22,7 @@ public class ReferenceRedirect extends HttpServlet {
         Reference reference;
         reference = referenceService.showByFullAddress(fullAddress);
         req.setAttribute("reference", reference);
-        req.getRequestDispatcher("WEB-INF/referenceRed.jsp").forward(req,resp);
+        resp.sendRedirect("https://"+fullAddress);
     }
 
     @Override

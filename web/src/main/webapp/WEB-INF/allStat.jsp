@@ -19,8 +19,9 @@
 
 <ul>
     <c:forEach var="statistic" items="${statisticsList}">
-        <li>Author Id: ${statistic.idAuthor}, Short Address: ${statistic.refShortAdr}, Number of Trans: ${statistic.numbOfTrans} Last Trans: ${statistic.lastTrans}</li>
+        <li>Author Id: ${statistic.idAuthor}, Short Address: ${statistic.refShortAdr}, Number of Trans: ${statistic.numbOfTrans} Last Trans: ${statistic.lastTrans}, Address: ${address}</li>
     </c:forEach>
+
 </ul>
 <br>
 
