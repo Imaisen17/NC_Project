@@ -43,7 +43,7 @@ private int id;
             //Reference reference = referenceService.showByShort_address(shortAddress);
             System.out.println(shortAddress);
             referenceService.delete(shortAddress);
-            resp.sendRedirect("/reference?id="+id);
+            resp.sendRedirect("reference?id="+id);
             System.out.println(id+"");
         } catch (SQLException throwables) {
             throwables.printStackTrace();

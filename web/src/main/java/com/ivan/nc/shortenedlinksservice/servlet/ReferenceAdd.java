@@ -32,6 +32,6 @@ private int id;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        resp.sendRedirect("/author");
+        resp.sendRedirect("author");
     }
 }

@@ -42,7 +42,7 @@ public class AuthorAdd extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        resp.sendRedirect("/author");
+        resp.sendRedirect("author");
 
     }
 }

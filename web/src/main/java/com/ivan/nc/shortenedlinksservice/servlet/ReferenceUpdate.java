@@ -40,6 +40,6 @@ public class ReferenceUpdate extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        resp.sendRedirect("/referenceUpdate?shortAddress="+shortAddress);
+        resp.sendRedirect("referenceUpdate?shortAddress="+shortAddress);
     }
 }

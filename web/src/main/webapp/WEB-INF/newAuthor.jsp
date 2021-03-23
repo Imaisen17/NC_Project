@@ -11,7 +11,7 @@
 
 <%@ include file="../header.jsp"%>
 
-<form action="/authorAdd" method="post">
+<form action="authorAdd" method="post">
     <label>Author name:</label>
     <input name="authorName" type="text" required/>
     <br>

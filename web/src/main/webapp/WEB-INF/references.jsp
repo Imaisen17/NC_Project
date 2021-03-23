@@ -23,7 +23,7 @@
         <li>Reference - Full address:  <a href="referenceUpdate?shortAddress=${reference.shortAddress}"> ${reference.fullAddress} </a> short address: ${reference.shortAddress}, date create: ${reference.dateCreate}</li>
         <li> <a href="referenceStatistic?shortAddress=${reference.shortAddress}">Statistics</a></li>
         <li> <a href="referenceRedirect?fullAddress=${reference.fullAddress}">Redirect</a></li>
-        <form action="/reference" method="post">
+        <form action="reference" method="post">
             <button type="submit" name="delete" value="${reference.shortAddress}">Delete</button>
         </form>
     </c:forEach>

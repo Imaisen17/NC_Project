@@ -1,8 +1,6 @@
 package com.ivan.nc.shortenedlinksservice.servlet;
 
 import com.ivan.nc.shortenedlinksservice.DTO.AuthorDTO;
-import com.ivan.nc.shortenedlinksservice.dao.AuthorDAO;
-import com.ivan.nc.shortenedlinksservice.dao.AuthorDAOImpl;
 import com.ivan.nc.shortenedlinksservice.model.Author;
 import com.ivan.nc.shortenedlinksservice.service.AuthorService;
 
@@ -24,7 +22,7 @@ public class AuthorServlet extends HttpServlet {
             try {
                 authorList = authorService.show();
                 req.setAttribute("authorList", authorList);
-                req.getRequestDispatcher("WEB-INF/author.jsp").forward(req,resp);
+                req.getRequestDispatcher("WEB-INF/author.jsp").forward(req, resp);
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
@@ -33,32 +31,20 @@ public class AuthorServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-       // if (req.getParameter("delete")){
-            int authorId = Integer.valueOf(req.getParameter("delete"));
-            try {
-                AuthorService authorService = new AuthorService();
-                Author author = authorService.showById(authorId);
-                authorService.delete(authorId);
-
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-        /*else {
-            int authorId = Integer.valueOf(req.getParameter("update"));
-            String authorName = req.getParameter("authorName");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int authorId = Integer.valueOf(req.getParameter("delete"));
+        try {
             AuthorService authorService = new AuthorService();
-            try {
-                authorService.update(authorId, authorName);
-            } catch (SQLException throwables) {
-                throwables.printStackTrace();
-            }
-        }*/
+            Author author = authorService.showById(authorId);
+            authorService.delete(authorId);
 
-        resp.sendRedirect("/author");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+
+        resp.sendRedirect("author");
     }
-
-
 
 
 }

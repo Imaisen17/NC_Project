@@ -10,7 +10,7 @@
 
 <%@ include file="../header.jsp"%>
 
-<form action="/referenceAdd" method="post">
+<form action="referenceAdd" method="post">
     <label>Full address:</label>
     <input name="fullAddress" type="text" minlength="1" maxlength="2048" required/>
     <br>

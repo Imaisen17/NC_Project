@@ -4,7 +4,7 @@
          id="web-test" version="2.5">
     <servlet>
         <servlet-name>Main</servlet-name>
-        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.mainServlet</servlet-class>
+        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.MainServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AuthorServlet</servlet-name>
