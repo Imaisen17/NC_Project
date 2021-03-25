@@ -2,10 +2,10 @@
          xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          id="web-test" version="2.5">
-    <servlet>
+    <!--<servlet>
         <servlet-name>Main</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.MainServlet</servlet-class>
-    </servlet>
+    </servlet>-->
     <servlet>
         <servlet-name>AuthorServlet</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.AuthorServlet</servlet-class>
@@ -18,45 +18,45 @@
         <servlet-name>ReferenceServlet</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceServlet</servlet-class>
     </servlet>
-    <servlet>
+    <!--<servlet>
         <servlet-name>StatisticsServlet</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.StatisticsServlet</servlet-class>
-    </servlet>
+    </servlet>-->
     <servlet>
         <servlet-name>ReferenceAdd</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceAdd</servlet-class>
     </servlet>
-    <servlet>
+    <!--<servlet>
         <servlet-name>ReferenceUpdate</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceUpdate</servlet-class>
-    </servlet>
-    <servlet>
+    </servlet>-->
+    <!--<servlet>
         <servlet-name>ReferenceStatistics</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.StatisticsReference</servlet-class>
-    </servlet>
-    <servlet>
+    </servlet>-->
+   <!-- <servlet>
         <servlet-name>ReferenceRedirect</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceRedirect</servlet-class>
-    </servlet>
-    <servlet>
+    </servlet>-->
+    <!--<servlet>
         <servlet-name>AllStatistics</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.AllStatisticsServlet</servlet-class>
-    </servlet>
-    <filter>
+    </servlet>-->
+    <!--<filter>
         <filter-name>Filter</filter-name>
         <filter-class>com.ivan.nc.shortenedlinksservice.servlet.Filter</filter-class>
-    </filter>
+    </filter>-->
 
-    <filter-mapping>
+    <!--<filter-mapping>
         <filter-name>Filter</filter-name>
         <url-pattern>/</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 
 
-    <servlet-mapping>
+    <!--<servlet-mapping>
         <servlet-name>Main</servlet-name>
         <url-pattern>/main</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>AuthorServlet</servlet-name>
         <url-pattern>/author</url-pattern>
@@ -65,10 +65,10 @@
         <servlet-name>ReferenceServlet</servlet-name>
         <url-pattern>/reference</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+    <!--<servlet-mapping>
         <servlet-name>StatisticsServlet</servlet-name>
         <url-pattern>/statistics</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>AuthorAdd</servlet-name>
         <url-pattern>/authorAdd</url-pattern>
@@ -77,7 +77,7 @@
         <servlet-name>ReferenceAdd</servlet-name>
         <url-pattern>/referenceAdd</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
+    <!--<servlet-mapping>
         <servlet-name>ReferenceUpdate</servlet-name>
         <url-pattern>/referenceUpdate</url-pattern>
     </servlet-mapping>
@@ -92,7 +92,17 @@
     <servlet-mapping>
         <servlet-name>AllStatistics</servlet-name>
         <url-pattern>/allStat</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
+<!--    <servlet>
+        <servlet-name>Calculator</servlet-name>
+        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.CalcServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Calculator</servlet-name>
+        <url-pattern>/calc</url-pattern>
+    </servlet-mapping>-->
+
 
 
 </web-app>

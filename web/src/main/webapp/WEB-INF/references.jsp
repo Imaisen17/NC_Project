@@ -17,6 +17,11 @@
 <body>
 
 <%@ include file="../header.jsp"%>
+<%--<ul>
+    <c:forEach var="reference" items="${referenceList}">
+        <li>Reference - Full address: ${reference.fullAddress} short address: ${reference.shortAddress}, date create: ${reference.dateCreate}</li>
+    </c:forEach>
+</ul>--%>
 
 <ul>
     <c:forEach var="reference" items="${referenceList}">

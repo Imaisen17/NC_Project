@@ -1,10 +1,10 @@
+/*
 package com.ivan.nc.shortenedlinksservice.servlet;
 
-import com.ivan.nc.shortenedlinksservice.dao.ReferenceDAO;
-import com.ivan.nc.shortenedlinksservice.dao.ReferenceDAOImpl;
-import com.ivan.nc.shortenedlinksservice.model.Reference;
-import com.ivan.nc.shortenedlinksservice.service.ReferenceService;
+import com.ivan.nc.shortenedlinksservice.entity.Reference;
+import com.ivan.nc.shortenedlinksservice.impl.ReferenceService;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,11 +14,12 @@ import java.sql.SQLException;
 
 public class ReferenceUpdate extends HttpServlet {
     String shortAddress;
+    @EJB
+    ReferenceService referenceService;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         shortAddress = req.getParameter("shortAddress");
         req.setAttribute("shortAddress", shortAddress);
-        ReferenceService referenceService=new ReferenceService();
         Reference reference=referenceService.showByShort_address(shortAddress);
         req.setAttribute("reference", reference);
         req.getRequestDispatcher("WEB-INF/referenceUpdate.jsp").forward(req, resp);
@@ -34,7 +35,6 @@ public class ReferenceUpdate extends HttpServlet {
         int authorId = Integer.valueOf(req.getParameter("authorId"));
         //Date dateCreate = Date.valueOf(req.getParameter("dateCreate"));
         Reference reference = new Reference(fullAddress, shortAddress, authorId);
-        ReferenceService referenceService = new ReferenceService();
         try {
             referenceService.update(shortAddress,fullAddress, authorId);
         } catch (SQLException throwables) {
@@ -43,3 +43,4 @@ public class ReferenceUpdate extends HttpServlet {
         resp.sendRedirect("referenceUpdate?shortAddress="+shortAddress);
     }
 }
+*/

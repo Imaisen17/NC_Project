@@ -1,3 +1,4 @@
+/*
 package com.ivan.nc.shortenedlinksservice;
 
 import com.ivan.nc.shortenedlinksservice.service.AuthorService;
@@ -16,3 +17,4 @@ public class Main {
         console.start();
     }
 }
+*/

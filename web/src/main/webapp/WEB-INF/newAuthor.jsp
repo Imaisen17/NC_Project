@@ -21,6 +21,6 @@
 
 <ul>
     <c:forEach var="author" items="${authorList}">
-        <li>Author <a href="reference?id=${author.id}">${author.name} </a> , id: ${author.id}, reference count: ${author.refCount}</li>
+        <li>Author <a href="reference?id=${author.id}">${author.name} </a> , id: ${author.id}</li>
     </c:forEach>
 </ul>

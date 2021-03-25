@@ -1,24 +1,23 @@
+/*
 package com.ivan.nc.shortenedlinksservice.servlet;
 
-import com.ivan.nc.shortenedlinksservice.DTO.AuthorDTO;
-import com.ivan.nc.shortenedlinksservice.model.Statistics;
-import com.ivan.nc.shortenedlinksservice.service.AuthorService;
-import com.ivan.nc.shortenedlinksservice.service.StatisticsService;
+import com.ivan.nc.shortenedlinksservice.entity.Statistics;
+import com.ivan.nc.shortenedlinksservice.impl.StatisticsService;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.net.InetAddress;
 import java.sql.SQLException;
 import java.util.List;
 
 public class AllStatisticsServlet extends HttpServlet {
-
+    @EJB
+    StatisticsService statisticsService;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        StatisticsService statisticsService = new StatisticsService();
         List<Statistics> statisticsList;
         {
             try {
@@ -42,3 +41,4 @@ public class AllStatisticsServlet extends HttpServlet {
         super.doPost(req, resp);
     }
 }
+*/

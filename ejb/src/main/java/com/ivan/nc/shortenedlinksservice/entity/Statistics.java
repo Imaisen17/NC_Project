@@ -1,14 +1,24 @@
-package com.ivan.nc.shortenedlinksservice.model;
+package com.ivan.nc.shortenedlinksservice.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
+@Entity
 public class Statistics {
+    @Id
     private int idAuthor;
+
     private String refShortAdr;
+
     private int numbOfTrans;
+
     private Date lastTrans;
 
-    private int counter;
+    @ManyToOne
+    Reference reference;
+
 
     public Statistics(int idAuthor, String refShortAdr, int numbOfTrans, Date lastTrans) {
         this.idAuthor = idAuthor;

@@ -1,3 +1,4 @@
+/*
 package com.ivan.nc.shortenedlinksservice.servlet;
 
 import javax.servlet.*;
@@ -26,3 +27,4 @@ public class Filter implements javax.servlet.Filter {
 
     }
 }
+*/

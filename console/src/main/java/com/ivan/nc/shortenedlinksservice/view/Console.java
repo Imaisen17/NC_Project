@@ -1,6 +1,7 @@
+/*
 package com.ivan.nc.shortenedlinksservice.view;
 
-import com.ivan.nc.shortenedlinksservice.model.Statistics;
+import com.ivan.nc.shortenedlinksservice.entity.Statistics;
 import com.ivan.nc.shortenedlinksservice.service.AuthorService;
 import com.ivan.nc.shortenedlinksservice.service.ReferenceService;
 import com.ivan.nc.shortenedlinksservice.service.StatisticsService;
@@ -120,3 +121,4 @@ public class Console {
 
     }
 }}
+*/

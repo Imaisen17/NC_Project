@@ -1,3 +1,4 @@
+/*
 package com.ivan.nc.shortenedlinksservice.servlet;
 
 import javax.servlet.ServletException;
@@ -16,3 +17,4 @@ public class MainServlet extends HttpServlet {
     }
 
 }
+*/

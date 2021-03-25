@@ -1,18 +1,37 @@
-package com.ivan.nc.shortenedlinksservice.dao;
+/*
+package com.ivan.nc.shortenedlinksservice.impl;
 
-import com.ivan.nc.shortenedlinksservice.model.Statistics;
-import com.ivan.nc.shortenedlinksservice.util.DbConnection;
+import com.ivan.nc.shortenedlinksservice.entity.Statistics;
+import com.ivan.nc.shortenedlinksservice.interfaces.StatisticsService;
 
-import java.sql.*;
-import java.util.ArrayList;
+import javax.ejb.Stateless;
+import java.sql.SQLException;
 import java.util.List;
 
-public class StatisticsDAOImpl extends DbConnection implements StatisticsDAO {
-    Date date = new Date(System.currentTimeMillis());
+@Stateless
+public class StatisticsServiceBean implements StatisticsService {
+    @Override
+    public List<Statistics> getAllStatByAuthorId(int authorId) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List<Statistics> getAllStatByRef(String refShortAddress) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public List<Statistics> getAll() throws SQLException {
+        return null;
+    }
+    */
+/*@EJB
     private Connection connection;
 
-    public StatisticsDAOImpl() {
-        this.connection = getConnection();;
+    Date date = new Date(System.currentTimeMillis());
+
+    public StatisticsServiceBean() {
+        this.connection = DbConnection.getConnection();;
     }
 
     @Override
@@ -71,5 +90,7 @@ public class StatisticsDAOImpl extends DbConnection implements StatisticsDAO {
             }
         }
         return statisticsList;
-    }
+    }*//*
+
 }
+*/

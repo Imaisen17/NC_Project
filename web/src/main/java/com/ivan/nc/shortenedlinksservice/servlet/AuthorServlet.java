@@ -1,9 +1,11 @@
 package com.ivan.nc.shortenedlinksservice.servlet;
 
-import com.ivan.nc.shortenedlinksservice.DTO.AuthorDTO;
-import com.ivan.nc.shortenedlinksservice.model.Author;
-import com.ivan.nc.shortenedlinksservice.service.AuthorService;
+import com.ivan.nc.shortenedlinksservice.entity.AuthorDTO;
+import com.ivan.nc.shortenedlinksservice.entity.Author;
+import com.ivan.nc.shortenedlinksservice.interfaces.AuthorService;
 
+
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,13 +16,14 @@ import java.util.List;
 
 public class AuthorServlet extends HttpServlet {
 
+    @EJB
+    AuthorService authorService;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        AuthorService authorService = new AuthorService();
-        List<AuthorDTO> authorList;
+        List<Author> authorList;
         {
             try {
-                authorList = authorService.show();
+                authorList = authorService.getAll();
                 req.setAttribute("authorList", authorList);
                 req.getRequestDispatcher("WEB-INF/author.jsp").forward(req, resp);
             } catch (SQLException throwables) {
@@ -34,8 +37,7 @@ public class AuthorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int authorId = Integer.valueOf(req.getParameter("delete"));
         try {
-            AuthorService authorService = new AuthorService();
-            Author author = authorService.showById(authorId);
+            Author author = authorService.getById(authorId);
             authorService.delete(authorId);
 
         } catch (SQLException throwables) {

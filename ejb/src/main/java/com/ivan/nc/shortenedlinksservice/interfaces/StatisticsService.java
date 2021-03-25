@@ -1,12 +1,12 @@
-package com.ivan.nc.shortenedlinksservice.dao;
+/*
+package com.ivan.nc.shortenedlinksservice.interfaces;
 
-import com.ivan.nc.shortenedlinksservice.model.Statistics;
+import com.ivan.nc.shortenedlinksservice.entity.Statistics;
 
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.List;
 
-public interface StatisticsDAO {
+public interface StatisticsService {
     List<Statistics> getAllStatByAuthorId(int authorId) throws SQLException;
 
     List<Statistics> getAllStatByRef(String refShortAddress) throws SQLException;
@@ -15,3 +15,4 @@ public interface StatisticsDAO {
 
 
 }
+*/

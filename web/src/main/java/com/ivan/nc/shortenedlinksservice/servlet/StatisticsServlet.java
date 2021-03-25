@@ -1,8 +1,10 @@
+/*
 package com.ivan.nc.shortenedlinksservice.servlet;
 
-import com.ivan.nc.shortenedlinksservice.model.Statistics;
-import com.ivan.nc.shortenedlinksservice.service.StatisticsService;
+import com.ivan.nc.shortenedlinksservice.entity.Statistics;
+import com.ivan.nc.shortenedlinksservice.impl.StatisticsService;
 
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,10 +14,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class StatisticsServlet extends HttpServlet {
+    @EJB
+    StatisticsService statisticsService;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.valueOf(req.getParameter("id"));
-        StatisticsService statisticsService = new StatisticsService();
          try {
             List<Statistics> statisticsList;
             statisticsList = statisticsService.showByAuthorId(id);
@@ -31,3 +34,4 @@ public class StatisticsServlet extends HttpServlet {
         super.doPost(req, resp);
     }
 }
+*/

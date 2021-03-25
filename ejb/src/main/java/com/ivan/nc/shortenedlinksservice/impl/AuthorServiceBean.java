@@ -1,19 +1,60 @@
-package com.ivan.nc.shortenedlinksservice.dao;
+package com.ivan.nc.shortenedlinksservice.impl;
 
-import com.ivan.nc.shortenedlinksservice.DTO.AuthorDTO;
-import com.ivan.nc.shortenedlinksservice.model.Author;
-import com.ivan.nc.shortenedlinksservice.util.DbConnection;
+import com.ivan.nc.shortenedlinksservice.entity.Author;
+import com.ivan.nc.shortenedlinksservice.entity.AuthorDTO;
+import com.ivan.nc.shortenedlinksservice.interfaces.AuthorService;
 
-import java.sql.*;
-import java.util.ArrayList;
+import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import java.sql.SQLException;
 import java.util.List;
 
-public class AuthorDAOImpl extends DbConnection implements AuthorDAO {
+@Stateless
+public class AuthorServiceBean implements AuthorService {
 
-    private Connection connection;
+    @PersistenceContext
+    EntityManager entityManager;
 
-    public AuthorDAOImpl() {
-        connection = getConnection();
+    @Override
+    public List<Author> getAll() throws SQLException {
+        List<Author> authors = entityManager
+                .createQuery("Select c from Author c", Author.class)
+                .getResultList();
+        return authors;
+    }
+
+    @Override
+    public List<AuthorDTO> getAllWithRef() throws SQLException {
+        return null;
+    }
+
+    @Override
+    public Author getById(int id) throws SQLException {
+        Author author = entityManager.find(Author.class, id);
+        return author;
+    }
+
+    @Override
+    public void create(String name) throws SQLException {
+        Author author = new Author();
+        author.setName(name);
+        entityManager.persist(author);
+
+    }
+
+
+    @Override
+    public void delete(int id) throws SQLException {
+        Author author = entityManager.find(Author.class, id);
+        entityManager.remove(author);
+    }
+
+    /*@EJB
+    private  Connection connection;
+
+    public AuthorServiceBean() {
+        connection = DbConnection.getConnection();
     }
 
     public List<Author> getAll() throws SQLException {
@@ -107,5 +148,5 @@ public class AuthorDAOImpl extends DbConnection implements AuthorDAO {
             preparedStatement2.executeUpdate();
             preparedStatement2.close();
         }
-    }
+    }*/
 }

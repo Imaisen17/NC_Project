@@ -1,8 +1,25 @@
-package com.ivan.nc.shortenedlinksservice.model;
+package com.ivan.nc.shortenedlinksservice.entity;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
 public class Author {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String name;
+
+    @OneToMany
+    List<Reference> references;
+
+    public List<Reference> getReferences() {
+        return references;
+    }
+
+    public void setReferences(List<Reference> references) {
+        this.references = references;
+    }
 
     public Author(int id, String name) {
         this.id = id;

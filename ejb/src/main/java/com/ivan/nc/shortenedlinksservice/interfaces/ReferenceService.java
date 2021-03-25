@@ -1,11 +1,11 @@
-package com.ivan.nc.shortenedlinksservice.dao;
+package com.ivan.nc.shortenedlinksservice.interfaces;
 
-import com.ivan.nc.shortenedlinksservice.model.Reference;
+import com.ivan.nc.shortenedlinksservice.entity.Reference;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public interface ReferenceDAO {
+public interface ReferenceService {
     List<Reference> getAll();
 
     List<Reference> getAllById(int id);

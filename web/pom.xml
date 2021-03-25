@@ -43,6 +43,40 @@
         </dependency>
 
     </dependencies>
+    <build>
+        <plugins>
+            <!--<plugin>
+                <groupId>com.oracle.weblogic</groupId>
+                <artifactId>weblogic-maven-plugin</artifactId>
+                <version>10.3.6.0</version>
+                <configuration>
+                    <adminurl>t3://192.168.56.101:7001</adminurl>
+                    <user>oracle</user>
+                    <password>Oracle_oracle</password>
+                    <upload>true</upload>
+                    <action>deploy</action>
+                    <remote>true</remote>
+                    <verbose>true</verbose>
+                    <source>${project.build.directory}/${project.build.finalName}.${project.packaging}</source>
+                    <name>${project.build.finalName}</name>
+                </configuration>
+                <executions>
+                    &lt;!&ndash; -DskipTests clean package com.oracle.weblogic:weblogic-maven-plugin:redeploy&ndash;&gt;
+                    <execution>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>redeploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
+        </plugins>
+
+    </build>
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
 
 
 </project>

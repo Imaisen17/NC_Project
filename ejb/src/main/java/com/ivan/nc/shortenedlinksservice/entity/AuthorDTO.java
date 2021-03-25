@@ -1,6 +1,10 @@
-package com.ivan.nc.shortenedlinksservice.DTO;
+package com.ivan.nc.shortenedlinksservice.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 public class AuthorDTO {
+
     private int id;
     private String name;
     private int refCount;
