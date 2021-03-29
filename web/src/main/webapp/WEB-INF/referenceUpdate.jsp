@@ -11,10 +11,10 @@
 
 <%@ include file="../header.jsp"%>
 <body>
-<li> Short address: ${reference.fullAddress}:: Full address: ${reference.shortAddress} :: Date create: ${reference.dateCreate} :: Author id: ${reference.authorId}</li>
+<li> Short address: ${reference.shortAddress}:: Full address: ${reference.fullAddress} :: Date create: ${reference.dateCreate} :: Author id: ${reference.authorId}</li>
 <form action="referenceUpdate" method="post">
     <label>Short address:</label>
-    <input value="${reference.fullAddress}" name="shortAddress" type="text" readonly/>
+    <input value="${reference.shortAddress}" name="shortAddress" type="text" readonly/>
     <br>
     <label>Full address:</label>
     <input name="fullAddress" type="text" required maxlength="2048"/>

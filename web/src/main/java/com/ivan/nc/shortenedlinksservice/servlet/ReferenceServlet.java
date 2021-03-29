@@ -2,6 +2,7 @@ package com.ivan.nc.shortenedlinksservice.servlet;
 
 import com.ivan.nc.shortenedlinksservice.entity.Reference;
 import com.ivan.nc.shortenedlinksservice.interfaces.ReferenceService;
+import com.ivan.nc.shortenedlinksservice.interfaces.StatisticsService;
 
 
 import javax.ejb.EJB;
@@ -17,6 +18,7 @@ public class ReferenceServlet extends HttpServlet {
     private int id;
     @EJB
     ReferenceService referenceService;
+
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println(req.getParameter("id"));

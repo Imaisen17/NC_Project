@@ -1,8 +1,7 @@
-/*
 package com.ivan.nc.shortenedlinksservice.servlet;
 
 import com.ivan.nc.shortenedlinksservice.entity.Reference;
-import com.ivan.nc.shortenedlinksservice.impl.ReferenceService;
+import com.ivan.nc.shortenedlinksservice.interfaces.ReferenceService;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -20,7 +19,7 @@ public class ReferenceUpdate extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         shortAddress = req.getParameter("shortAddress");
         req.setAttribute("shortAddress", shortAddress);
-        Reference reference=referenceService.showByShort_address(shortAddress);
+        Reference reference=referenceService.getByShortAddress(shortAddress);
         req.setAttribute("reference", reference);
         req.getRequestDispatcher("WEB-INF/referenceUpdate.jsp").forward(req, resp);
 
@@ -43,4 +42,3 @@ public class ReferenceUpdate extends HttpServlet {
         resp.sendRedirect("referenceUpdate?shortAddress="+shortAddress);
     }
 }
-*/

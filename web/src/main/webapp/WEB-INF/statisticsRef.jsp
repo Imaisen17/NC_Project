@@ -18,11 +18,9 @@
 
 <%@ include file="../header.jsp"%>
 
-<ul>
-    <c:forEach var="statistics" items="${statisticsRefList}">
-        <li>Statistic ${statistics.idAuthor}, shortRef: ${statistics.refShortAdr}, number of trans: ${statistics.numbOfTrans}, last: ${statistics.lastTrans}</li>
-    </c:forEach>
-</ul>
+<c:forEach var="statistic" items="${statistics}">
+    <li>Statistic Id: ${statistic.id}, Short Address: ${statistic.refShortAdr}, Last Transaction: ${statistic.lastTrans} Number of Transaction: ${statistic.numbOfTrans}, Author Id: ${statistic.authorId}</li>
+</c:forEach>
 
 </body>
 </html>

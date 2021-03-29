@@ -10,7 +10,7 @@ public class Author {
     private int id;
     private String name;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
     List<Reference> references;
 
     public List<Reference> getReferences() {

@@ -1,41 +1,61 @@
 package com.ivan.nc.shortenedlinksservice.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class Statistics {
     @Id
-    private int idAuthor;
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private int id;
 
+    @org.hibernate.annotations.ForeignKey(name = "refShortAdr")
     private String refShortAdr;
+
+    private int authorId;
 
     private int numbOfTrans;
 
     private Date lastTrans;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     Reference reference;
 
+    public Reference getReference() {
+        return reference;
+    }
 
-    public Statistics(int idAuthor, String refShortAdr, int numbOfTrans, Date lastTrans) {
-        this.idAuthor = idAuthor;
-        this.refShortAdr = refShortAdr;
-        this.numbOfTrans = numbOfTrans;
-        this.lastTrans = lastTrans;
+    public void setReference(Reference reference) {
+        this.reference = reference;
+    }
+
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Statistics() {
     }
 
-    public int getIdAuthor() {
-        return idAuthor;
+    public Statistics(int id, String refShortAdr, int authorId, int numbOfTrans, Date lastTrans) {
+        this.id = id;
+        this.refShortAdr = refShortAdr;
+        this.authorId = authorId;
+        this.numbOfTrans = numbOfTrans;
+        this.lastTrans = lastTrans;
     }
 
-    public void setIdAuthor(int idAuthor) {
-        this.idAuthor = idAuthor;
+    public int getAuthorId() {
+        return authorId;
+    }
+
+    public void setAuthorId(int authorId) {
+        this.authorId = authorId;
     }
 
     public String getRefShortAdr() {

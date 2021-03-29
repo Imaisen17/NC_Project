@@ -1,8 +1,7 @@
-/*
 package com.ivan.nc.shortenedlinksservice.servlet;
 
 import com.ivan.nc.shortenedlinksservice.entity.Statistics;
-import com.ivan.nc.shortenedlinksservice.impl.StatisticsService;
+import com.ivan.nc.shortenedlinksservice.interfaces.StatisticsService;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -21,7 +20,7 @@ public class AllStatisticsServlet extends HttpServlet {
         List<Statistics> statisticsList;
         {
             try {
-                statisticsList = statisticsService.showAllStat();
+                statisticsList = statisticsService.getAll();
                 req.setAttribute("statisticsList", statisticsList);
                 String adr = req.getRemoteAddr();
                 String usr = req.getHeader("User-Agent");
@@ -41,4 +40,3 @@ public class AllStatisticsServlet extends HttpServlet {
         super.doPost(req, resp);
     }
 }
-*/

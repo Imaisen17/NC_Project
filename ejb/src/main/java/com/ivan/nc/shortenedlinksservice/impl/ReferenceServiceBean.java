@@ -2,22 +2,21 @@ package com.ivan.nc.shortenedlinksservice.impl;
 
 import com.ivan.nc.shortenedlinksservice.entity.Reference;
 import com.ivan.nc.shortenedlinksservice.interfaces.ReferenceService;
-
 import me.nimavat.shortid.ShortId;
 
-import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.Date;
+import java.sql.SQLException;
 import java.util.List;
 
 @Stateless
 public class ReferenceServiceBean implements ReferenceService {
     @PersistenceContext
     EntityManager entityManager;
-    Date date = new Date(System.currentTimeMillis());
+
+
 
     @Override
     public List<Reference> getAll() {
@@ -26,18 +25,20 @@ public class ReferenceServiceBean implements ReferenceService {
 
     @Override
     public List<Reference> getAllById(int id) {
-        List<Reference> referenceList = entityManager.createQuery("From Reference where authorId="+id).getResultList();
+        List<Reference> referenceList = entityManager.createQuery("From Reference where authorId=" + id).getResultList();
         return referenceList;
     }
 
     @Override
     public Reference getByShortAddress(String short_address) {
-        return null;
+        Reference reference = entityManager.find(Reference.class, short_address);
+        return reference;
     }
 
     @Override
     public Reference getByFullAddress(String full_address) {
-        return null;
+        Reference reference = (Reference) entityManager.createQuery("From Reference where fullAddress="+full_address,Reference.class);
+        return reference;
     }
 
     @Override
@@ -46,20 +47,25 @@ public class ReferenceServiceBean implements ReferenceService {
         reference.setAuthorId(authorId);
         reference.setFullAddress(fullAddress);
         reference.setShortAddress(ShortId.generate());
-        reference.setDateCreate(date);
+        reference.setDateCreate(new Date(System.currentTimeMillis()));
         entityManager.persist(reference);
     }
 
     @Override
     public Reference update(String shortAddress, String fullAddress, int authorId) throws SQLException {
-        return null;
+        Reference reference = new Reference();
+        reference.setShortAddress(shortAddress);
+        reference.setFullAddress(fullAddress);
+        reference.setAuthorId(authorId);
+        reference.setDateCreate(new Date(System.currentTimeMillis()));
+        entityManager.merge(reference);
+        return reference;
     }
 
     @Override
     public void delete(String shortAddress) throws SQLException {
         Reference reference = entityManager.find(Reference.class, shortAddress);
         entityManager.remove(reference);
-
     }
     /*@EJB
     private Connection connection;

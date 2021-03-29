@@ -1,31 +1,49 @@
-/*
 package com.ivan.nc.shortenedlinksservice.impl;
+
 
 import com.ivan.nc.shortenedlinksservice.entity.Statistics;
 import com.ivan.nc.shortenedlinksservice.interfaces.StatisticsService;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 @Stateless
 public class StatisticsServiceBean implements StatisticsService {
+    @PersistenceContext
+    EntityManager entityManager;
     @Override
     public List<Statistics> getAllStatByAuthorId(int authorId) throws SQLException {
         return null;
     }
 
     @Override
-    public List<Statistics> getAllStatByRef(String refShortAddress) throws SQLException {
-        return null;
+    public List<Statistics> getAllStatByRef(String shortRef) throws SQLException {
+       List<Statistics> statistics =
+               entityManager.createNativeQuery("Select * From Statistics where refshortadr = "+"'"+shortRef+"'", Statistics.class).getResultList();
+        return statistics;
     }
 
     @Override
     public List<Statistics> getAll() throws SQLException {
-        return null;
+        List<Statistics> statisticsList = entityManager.createQuery("select s From Statistics s", Statistics.class).getResultList();
+        return statisticsList;
     }
-    */
-/*@EJB
+
+    public void createStat(int idAuthor, String refShortAdr, int numbOfTrans) {
+        Statistics statistics = new Statistics();
+        statistics.setAuthorId(idAuthor);
+        statistics.setRefShortAdr(refShortAdr);
+        statistics.setLastTrans(new Date(System.currentTimeMillis()));
+        statistics.setNumbOfTrans(numbOfTrans);
+        entityManager.persist(statistics);
+    }
+
+    /*
+@EJB
     private Connection connection;
 
     Date date = new Date(System.currentTimeMillis());
@@ -90,7 +108,6 @@ public class StatisticsServiceBean implements StatisticsService {
             }
         }
         return statisticsList;
-    }*//*
+    }*/
 
 }
-*/

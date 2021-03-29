@@ -25,9 +25,9 @@
 
 <ul>
     <c:forEach var="reference" items="${referenceList}">
-        <li>Reference - Full address:  <a href="referenceUpdate?shortAddress=${reference.shortAddress}"> ${reference.fullAddress} </a> short address: ${reference.shortAddress}, date create: ${reference.dateCreate}</li>
-        <li> <a href="referenceStatistic?shortAddress=${reference.shortAddress}">Statistics</a></li>
-        <li> <a href="referenceRedirect?fullAddress=${reference.fullAddress}">Redirect</a></li>
+        <li>Reference - Full address:  <a href="referenceUpdate?shortAddress=${reference.shortAddress}"> ${reference.fullAddress} </a> Short Address: ${reference.shortAddress}, Date create: ${reference.dateCreate}, Author ID : ${reference.authorId}</li>
+        <li> <a href="referenceStatistic?refShortAdr=${reference.shortAddress}&authorId=${reference.authorId}">Statistics</a></li>
+        <li> <a href="referenceRedirect?shortAddress=${reference.shortAddress}">Redirect</a></li>
         <form action="reference" method="post">
             <button type="submit" name="delete" value="${reference.shortAddress}">Delete</button>
         </form>

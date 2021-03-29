@@ -2,17 +2,24 @@ package com.ivan.nc.shortenedlinksservice.entity;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+
 @Entity
 public class Reference {
     @Id
     private String shortAddress;
+
     private String fullAddress;
+
     private Date dateCreate;
-    @org.hibernate.annotations.ForeignKey(name = "authorId")
+
     private int authorId;
 
     @ManyToOne(fetch = FetchType.EAGER)
     Author author;
+
+    @OneToMany(mappedBy = "reference")
+    List<Statistics> statisticsList;
 
     public Author getAuthor() {
         return author;

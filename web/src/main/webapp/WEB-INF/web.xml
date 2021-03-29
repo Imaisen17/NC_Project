@@ -26,22 +26,22 @@
         <servlet-name>ReferenceAdd</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceAdd</servlet-class>
     </servlet>
-    <!--<servlet>
+    <servlet>
         <servlet-name>ReferenceUpdate</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceUpdate</servlet-class>
-    </servlet>-->
-    <!--<servlet>
+    </servlet>
+    <servlet>
         <servlet-name>ReferenceStatistics</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.StatisticsReference</servlet-class>
-    </servlet>-->
-   <!-- <servlet>
+    </servlet>
+    <servlet>
         <servlet-name>ReferenceRedirect</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.ReferenceRedirect</servlet-class>
-    </servlet>-->
-    <!--<servlet>
+    </servlet>
+    <servlet>
         <servlet-name>AllStatistics</servlet-name>
         <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.AllStatisticsServlet</servlet-class>
-    </servlet>-->
+    </servlet>
     <!--<filter>
         <filter-name>Filter</filter-name>
         <filter-class>com.ivan.nc.shortenedlinksservice.servlet.Filter</filter-class>
@@ -77,7 +77,7 @@
         <servlet-name>ReferenceAdd</servlet-name>
         <url-pattern>/referenceAdd</url-pattern>
     </servlet-mapping>
-    <!--<servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ReferenceUpdate</servlet-name>
         <url-pattern>/referenceUpdate</url-pattern>
     </servlet-mapping>
@@ -92,16 +92,8 @@
     <servlet-mapping>
         <servlet-name>AllStatistics</servlet-name>
         <url-pattern>/allStat</url-pattern>
-    </servlet-mapping>-->
-<!--    <servlet>
-        <servlet-name>Calculator</servlet-name>
-        <servlet-class>com.ivan.nc.shortenedlinksservice.servlet.CalcServlet</servlet-class>
-    </servlet>
+    </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>Calculator</servlet-name>
-        <url-pattern>/calc</url-pattern>
-    </servlet-mapping>-->
 
 
 

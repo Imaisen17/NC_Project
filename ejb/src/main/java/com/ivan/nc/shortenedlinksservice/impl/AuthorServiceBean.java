@@ -19,7 +19,7 @@ public class AuthorServiceBean implements AuthorService {
     @Override
     public List<Author> getAll() throws SQLException {
         List<Author> authors = entityManager
-                .createQuery("Select c from Author c", Author.class)
+                .createQuery("Select a from Author a", Author.class)
                 .getResultList();
         return authors;
     }

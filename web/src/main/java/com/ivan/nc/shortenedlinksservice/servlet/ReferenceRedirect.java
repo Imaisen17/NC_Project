@@ -1,8 +1,8 @@
-/*
 package com.ivan.nc.shortenedlinksservice.servlet;
 
 import com.ivan.nc.shortenedlinksservice.entity.Reference;
-import com.ivan.nc.shortenedlinksservice.impl.ReferenceService;
+import com.ivan.nc.shortenedlinksservice.interfaces.ReferenceService;
+
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -17,11 +17,11 @@ public class ReferenceRedirect extends HttpServlet {
     ReferenceService referenceService;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String fullAddress = req.getParameter("fullAddress");
+        String shortAddress = req.getParameter("shortAddress");
         Reference reference;
-        reference = referenceService.showByFullAddress(fullAddress);
+        reference = referenceService.getByShortAddress(shortAddress);
         req.setAttribute("reference", reference);
-        resp.sendRedirect("https://"+fullAddress);
+        resp.sendRedirect(reference.getFullAddress());
     }
 
     @Override
@@ -29,4 +29,3 @@ public class ReferenceRedirect extends HttpServlet {
         super.doPost(req, resp);
     }
 }
-*/

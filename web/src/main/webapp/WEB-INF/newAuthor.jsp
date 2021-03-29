@@ -13,7 +13,7 @@
 
 <form action="authorAdd" method="post">
     <label>Author name:</label>
-    <input name="authorName" type="text" required/>
+    <input name="authorName" type="text" required maxlength="10"/>
     <br>
     <input type="submit" name="Send"/>
 </form>
