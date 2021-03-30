@@ -18,17 +18,11 @@ public class StatisticsReference extends HttpServlet {
     @EJB
     StatisticsService statisticsService;
 
-    int numbOfTrans = 1;
-    int tempId;
-    int id;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String shortAddress = req.getParameter("refShortAdr");
         System.out.println(shortAddress);
-        id = Integer.valueOf(req.getParameter("authorId"));
-        statisticsService.createStat(id,shortAddress, numbOfTrans);
-        numbOfTrans++;
         try {
             List<Statistics> statistics;
             statistics = statisticsService.getAllStatByRef(shortAddress);

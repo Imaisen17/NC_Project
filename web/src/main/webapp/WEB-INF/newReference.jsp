@@ -17,5 +17,22 @@
     <label>Author id:</label>
     <input name="authorId" type="text" required m />
     <br>
-    <input type="submit" name="Send"/>
+    <label>Link lifeTime</label>
+    <input type="range" list="tickmarks" >
+    <datalist id="tickmarks">
+        <option value="10">
+        <option value="20">
+        <option value="30">
+        <option value="40">
+        <option value="50">
+        <option value="60">
+        <option value="70">
+        <option value="80">
+        <option value="90">
+        <option value="100">
+        <option value="110">
+        <option value="120">
+    </datalist>
+    <br>
+    <input type="submit" name="Send" />
 </form>
